@@ -51,4 +51,7 @@ while True:
     continuar = int(input("\nDeseja realizar outra operação?\n0: Não\n1: Sim\n"))
 
     # fim
-    if continuar == 0: break    
+    if continuar == 0: break
+
+# limpar tela
+os.system("cls")

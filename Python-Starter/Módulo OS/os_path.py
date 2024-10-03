@@ -1,24 +1,30 @@
 import os
 
-os.getcwd()
+diretorio = os.getcwd()
 
 # Agrega uma pasta a um caminho. Retorna uma string
-os.path.join('/Users/rodrigosoares/', 'pasta')
+novo_diretorio = os.path.join(diretorio, 'Pasta Exemplo')
 
 # Retorna o nome da pasta final de um caminho completo.
-os.path.basename('/Users/rodrigosoares/pasta')
+os.path.basename(novo_diretorio)
+pasta = os.path.basename(novo_diretorio)
 
 # Separa caminho da pasta. Retorna ambos segregados.
 os.path.split()
+os.path.split(os.getcwd())
+split_diretorio = os.path.split(novo_diretorio)
 
 # Retorna a raiz do diretório especificado.
-os.path.dirname('/Users/rodrigosoares/')
+base = os.path.dirname(novo_diretorio)
+
+# Print diretório base e nome da pasta
+print('Base: {} \nPasta: {}'.format(base, pasta))
 
 # Retorna o tempo da última atualização do diretório
 curr_dir = os.getcwd()
 lt = os.path.getmtime(curr_dir)
 
-# getatime retorna o tempo do último acesso.
+# Getatime retorna o tempo do último acesso.
 from datetime import datetime
 datetime.utcfromtimestamp(lt)
 
