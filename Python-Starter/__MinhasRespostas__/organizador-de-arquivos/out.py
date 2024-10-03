@@ -5,28 +5,21 @@ import os
 # Diretório
 diretorio = os.getcwd()
 
-# Listar pastas
-lista_pastas = []
-for x in os.listdir(diretorio):
-    if os.path.isdir(x):
-        lista_pastas.append(x)
+# Lista de pastas e arquivos
+lista_diretorio = os.listdir(diretorio)
 
-# Remover arquivos das pastas
+# Lista de pastas dentro do diretorio
+lista_pastas = [x for x in lista_diretorio if os.path.isdir(x)]
+
+# Remover arquivos das pastas e deletar pasta
 for pasta in lista_pastas:
-    origem = os.path.join(diretorio, pasta)
-    lista_arquivos = os.listdir(origem)
-    for arquivo in lista_arquivos:
-        origem_temp = os.path.join(origem, arquivo)
-        destino = os.path.join(diretorio, arquivo)
-        os.rename(origem_temp, destino)
-
-# Apagar pastas
-for pasta in lista_pastas:
-    caminho_completo = os.path.join(diretorio, pasta)
-    try:
-        os.rmdir(caminho_completo)
-    except OSError as e:
-        print(f'Erro ao deletar {caminho_completo}: {e}')
-
+    pasta_origem = os.path.join(diretorio, pasta)
+    lista_arquivos = os.listdir(os.path.join(diretorio, pasta))
+    if len(os.listdir(pasta_origem)) != 0:
+        for arquivo in lista_arquivos:
+            origem = os.path.join(pasta_origem, arquivo)
+            destino = os.path.join(diretorio, arquivo)
+            os.rename(origem, destino)
+        os.rmdir(pasta_origem)
 
 
