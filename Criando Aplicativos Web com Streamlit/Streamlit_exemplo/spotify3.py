@@ -14,14 +14,13 @@ df.set_index("Track", inplace=True)
 st.title("Quantidade de :blue[Likes] :sunglasses:")
 
 # botao para selecionar o artista
-artista = st.sidebar.selectbox("Artista: ", df["Artist"].unique())
+artista = st.selectbox("Artista: ", df["Artist"].unique())
 
 # checkbox
 agree = st.checkbox("Mostrar Gráfico")
 
 # gráfico
-if agree:
-    st.bar_chart(df[df["Artist"] == artista]["Likes"])
+if agree: st.bar_chart(df[df["Artist"] == artista]["Likes"])
 
 
 
