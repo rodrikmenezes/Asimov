@@ -1,4 +1,6 @@
 # excluir pdfs
 *.pdf
+*.csv
 
-
+# pastas
+Dashboards Interativos com Python/
